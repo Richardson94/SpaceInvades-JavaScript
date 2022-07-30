@@ -6,7 +6,6 @@ export default class Stage{
     this.PutBorderSchema(size);
     this.scenario = this.GenerateBoard(size);
 
-    //console.log(this.Schema);
   }
   createSchema(size,character){
     for (let row = 0; row < size; row++) {
@@ -16,25 +15,21 @@ export default class Stage{
       }
     }
   }
+
   PutBorderSchema(size){
     for (let i = 0; i < size; i++) {
       this.Schema[0][i] = '---';
-  }
-  for (let i = 0; i < size; i++) {
       this.Schema[size - 1][i] = '---';
-  }
-  for (let i = 0; i < size; i++) {
       this.Schema[i][0] = ' | ';
-  }
-  for (let i = 0; i < size; i++) {
       this.Schema[i][size - 1] = ' | ';
+    }
+    this.Schema[0][0] = ' ╔-';
+    this.Schema[0][size - 1] = '-╗ ';
+    this.Schema[size - 1][0] = ' ╚-';
+    this.Schema[size - 1][size - 1] = '-╝ ';
+    return this.Schema;
   }
-  this.Schema[0][0] = ' ╔-';
-  this.Schema[0][size - 1] = '-╗ ';
-  this.Schema[size - 1][0] = ' ╚-';
-  this.Schema[size - 1][size - 1] = '-╝ ';
-  return this.Schema;
-  }
+
   GenerateBoard(size){
     let ScenarioBuild= '';
     for(let i=0;i<size;i++){
