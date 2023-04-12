@@ -1,14 +1,9 @@
-import { Game } from "./game.js";
-import readline from 'readline';
+import { Game } from './game.js';
 
-let NewGame= new Game();
-// celan all terminal for own code
-process.stdout.write('\x1Bc');
+let playerGame = new Game();
 
-function run(){
-  readline.cursorTo(process.stdout,0,0);
-  process.stdout.write(NewGame.print());
-  
+function run() {
+    playerGame.startGame();
 }
-
-setInterval(run,300);
+console.clear();
+setInterval(run, 500);
